@@ -1,17 +1,19 @@
-// returns data or loading or error
+import { ActionType } from "../action-types";
+import { Action } from "../actions";
+
 interface RepoState {
   loading: boolean;
   error: string | null;
   data: string[];
 }
 
-const reducer = (state: RepoState, action: any) => {
+const reducer = (state: RepoState, action: Action): RepoState => {
   switch (action.type) {
-    case "search_repos":
+    case ActionType.SEARCH_REPOS:
       return { loading: true, error: null, data: [] };
-    case "search_repos_success":
+    case ActionType.SEARCH_REPOS_SUCCESS:
       return { loading: false, error: null, data: action.payload };
-    case "search_repos_error":
+    case ActionType.SEARCH_REPOS_ERROR:
       return { loading: false, error: action.payload, data: [] };
     default:
       return state;
