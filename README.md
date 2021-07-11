@@ -1,1 +1,1 @@
-# Redux Typescript template
+# React - Redux - Typescript template
